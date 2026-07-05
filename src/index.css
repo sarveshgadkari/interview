@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #12181a;
+  --color-charcoal-raised: #1a2124;
+  --color-charcoal-card: #171e20;
+  --color-border-soft: #2a3336;
+  --color-cream: #edeae2;
+  --color-cream-dim: #a9a49a;
+  --color-amber: #e8a33d;
+  --color-amber-dim: #b9822f;
+  --color-teal: #59b0a6;
+  --color-teal-dim: #427c75;
+  --color-danger: #d9695a;
+  --color-danger-dim: #b0463a;
+
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-charcoal text-cream font-sans antialiased;
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-amber/30 text-cream;
+  }
+
+  * {
+    scrollbar-color: var(--color-border-soft) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+@layer components {
+  .panel-card {
+    @apply bg-charcoal-card border border-border-soft rounded-[10px];
+  }
+
+  .panel-input {
+    @apply w-full bg-charcoal-raised border border-border-soft rounded-[10px] px-3 py-2 text-sm text-cream placeholder:text-cream-dim/60 focus:outline-none focus:border-amber/60 focus:ring-1 focus:ring-amber/40 transition-colors;
+  }
+
+  .panel-label {
+    @apply block text-xs font-medium text-cream-dim mb-1.5 uppercase tracking-wide;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-[10px] bg-amber px-4 py-2 text-sm font-medium text-charcoal hover:bg-amber-dim transition-colors disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-[10px] border border-border-soft bg-charcoal-raised px-4 py-2 text-sm font-medium text-cream hover:border-teal/50 hover:text-teal transition-colors disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-[10px] border border-danger/40 bg-danger/10 px-4 py-2 text-sm font-medium text-danger hover:bg-danger/20 transition-colors disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-[8px] px-2.5 py-1.5 text-xs font-medium text-cream-dim hover:text-cream hover:bg-charcoal-raised transition-colors;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium font-mono;
+  }
+}

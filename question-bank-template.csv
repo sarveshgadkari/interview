@@ -1,0 +1,4 @@
+type,difficulty,question,answer
+MERN Stack,Easy,What is the virtual DOM?,A lightweight in-memory representation of the real DOM used to batch updates.
+MERN Stack,Medium,Explain the event loop in Node.js,Covers the call stack, callback queue, and microtasks.
+MERN Stack,Hard,How would you design a rate limiter for an API?,Discusses token bucket / sliding window approaches and distributed considerations.
