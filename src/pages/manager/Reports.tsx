@@ -121,17 +121,29 @@ export default function Reports() {
                     <Badge className={statusStyles[r.status]}>{r.status}</Badge>
                   </td>
                   <td className="px-5 py-3 text-right">
-                    <button
-                      className="btn-ghost text-teal hover:text-teal"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        handleDownload(r.student.id)
-                      }}
-                      disabled={downloadingId === r.student.id}
-                      type="button"
-                    >
-                      {downloadingId === r.student.id ? 'Preparing…' : 'Download PDF'}
-                    </button>
+                    <div className="flex items-center justify-end gap-1">
+                      <button
+                        className="btn-ghost text-amber hover:text-amber"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          navigate(`/manager/students/${r.student.id}`)
+                        }}
+                        type="button"
+                      >
+                        View
+                      </button>
+                      <button
+                        className="btn-ghost text-teal hover:text-teal"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleDownload(r.student.id)
+                        }}
+                        disabled={downloadingId === r.student.id}
+                        type="button"
+                      >
+                        {downloadingId === r.student.id ? 'Preparing…' : 'Download PDF'}
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
